@@ -61,6 +61,6 @@
 | item   | references | null: false, foreign_key: true |
 
 ### Association
-・belongs_to :items
+・belongs_to :item
 ・has_one    :address
 ・belongs_to :user
