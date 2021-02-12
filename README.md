@@ -15,53 +15,52 @@
 ### Association
 ・has_many :items
 ・has_many :purchases
-・has_one  :address
 
 
 ## ITEMSテーブル
 
-| Column           | Type      | Options     |
-|------------------|-----------|-------------|
-| item_name        | string    | null: false |
-| text             | text      | null: false |
-| category_id      | integer   | null: false |
-| status_id        | integer   | null: false |
-| shopping_cost_id | integer   | null: false |
-| area_id          | integer   | null: false |
-| shopping_day_id  | integer   | null: false |
-| price            | integer   | null: false |
-| user             | reference | null: false, foreign_key: true |
+| Column           | Type       | Options     |
+|------------------|------------|-------------|
+| name             | string     | null: false |
+| text             | text       | null: false |
+| category_id      | integer    | null: false |
+| status_id        | integer    | null: false |
+| shopping_cost_id | integer    | null: false |
+| area_id          | integer    | null: false |
+| shopping_day_id  | integer    | null: false |
+| price            | integer    | null: false |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 ・belongs_to :users
-・has_one    :purchases
+・has_one    :purchase
 
 
 ## ADDRESSESテーブル
 
-| Column      | Type      | Options     |
-|-------------|-----------|-------------|
-| postal_cade | string    | null: false |
-| prefecture  | string    | null: false |
-| city        | strong    | null: false |
-| address     | string    | null: false |
-| phone_num   | string    | null: false |
-| user        | reference | null: false, foreign_key: true |
+| Column      | Type       | Options     |
+|-------------|------------|-------------|
+| postal_cade | string     | null: false |
+| area_id     | integer    | null: false, foreign_key: true |
+| city        | strong     | null: false |
+| address     | string     | null: false |
+| building    | string     |             |
+| phone_num   | string     | null: false |
+| user        | references | null: false, foreign_key: true |
 
 
 ### Association
 ・belongs_to :users
-・has_one    :purchases
+・has_one    :purchase
 
 
 ## PURCHASESテーブル
 
-| Column | Type      | Options                        |
-|--------|-----------|--------------------------------|
-| user   | reference | null: false, foreign_key: true |
-| item   | reference | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+|--------|------------|--------------------------------|
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
-・belongs_to :users
 ・belongs_to :items
 ・belongs_to :addresses
