@@ -3,7 +3,7 @@
 | Column             | Type    | Options     |
 |--------------------|---------|-------------|
 | nickname           | string  | null: false |
-| email              | string  | null: false |
+| email              | string  | null: false unique: true|
 | encrypted_password | string  | null: false |
 | family_name        | string  | null: false |
 | first_name         | string  | null: false |
@@ -42,7 +42,7 @@
 |-------------|------------|-------------|
 | postal_cade | string     | null: false |
 | area_id     | integer    | null: false, foreign_key: true |
-| city        | strong     | null: false |
+| city        | string     | null: false |
 | address     | string     | null: false |
 | building    | string     |             |
 | phone_num   | string     | null: false |
