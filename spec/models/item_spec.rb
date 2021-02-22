@@ -41,25 +41,25 @@ RSpec.describe Item, type: :model do
     end
 
     it 'statusが1では登録できないこと' do
-      @item.status_id = '1'
+      @item.status_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Statusは1以外の値にしてください")
     end
 
     it 'shopping_cost_idが1では登録できないこと' do
-      @item.shopping_cost_id = '1'
+      @item.shopping_cost_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Shopping costは1以外の値にしてください")
     end
 
     it 'shopping_day_idが1では登録できないこと' do
-      @item.shopping_day_id = '1'
+      @item.shopping_day_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Shopping dayは1以外の値にしてください")
     end
 
     it 'areaが1では登録できないこと' do
-      @item.area_id = '1'
+      @item.area_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Areaは1以外の値にしてください")
     end
@@ -71,13 +71,31 @@ RSpec.describe Item, type: :model do
     end
 
     it 'priceが300未満では登録できないこと' do
-      @item.price = '299'
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include("Price入力値が300~9999999の範囲外です")
     end
 
     it 'priceが10,000,000以上では登録できないこと' do
-      @item.price = '10000000'
+      @item.price = 10000000
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price入力値が300~9999999の範囲外です")
+    end
+
+    it '全角文字では登録できないこと' do
+      @item.price = 'ああああ'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price入力値が300~9999999の範囲外です")
+    end
+
+    it '半角英数混合では登録できないこと' do
+      @item.price = '111aaa'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price入力値が300~9999999の範囲外です")
+    end
+
+    it '半角英語だけでは登録できないこと' do
+      @item.price = 'aaaa'
       @item.valid?
       expect(@item.errors.full_messages).to include("Price入力値が300~9999999の範囲外です")
     end

@@ -26,8 +26,8 @@ class Item < ApplicationRecord
 
   validates :price,
   :numericality => {
-    :greater_than_or_equal_to => 300,
-    :less_than_or_equal_to => 9999999,
+    greater_than_or_equal_to: 300,
+    less_than_or_equal_to: 9999999,
     :message => '入力値が300~9999999の範囲外です' 
   }
 end
