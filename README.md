@@ -34,6 +34,11 @@
 ### Association
 ・belongs_to :user
 ・has_one    :purchase
+・belongs_to :category
+・belongs_to :status
+・belongs_to :shopping_cost
+・belongs_to :area
+・belongs_to :shopping_day
 
 
 ## ADDRESSESテーブル
@@ -64,3 +69,38 @@
 ・belongs_to :item
 ・has_one    :address
 ・belongs_to :user
+
+
+## CATEGORYテーブル
+・ActiveHash
+
+### Association
+・has_many :items
+
+
+## STATUSテーブル
+・ActiveHash
+
+### Association
+・has_many :items
+
+
+## SHOPPING_COSTテーブル
+・ActiveHash
+
+### Association
+・has_many :items
+
+
+## AREAテーブル
+・ActiveHash
+
+### Association
+・has_many :items
+
+
+## SHOPPING_DAYテーブル
+・ActiveHash
+
+### Association
+・has_many :items
