@@ -1,4 +1,4 @@
-class クラス名
+class PurchaseAddress
   include ActiveModel::Model
   attr_accessor :postal_cade,:area_id, :city, :address, :building, :phone_num, :user_id, :item_id, :token
 
@@ -14,6 +14,6 @@ class クラス名
   
   def save
     Purchase.create(item_id: item_id, user_id: user_id)
-    Address.create(postal_code: postal_code, area_id: area_id, city: city, address: address, building: building, phone_num: phone_num, :user_id, :purchase_id purchase.id)
+    Address.create(postal_code: postal_code, area_id: area_id, city: city, address: address, building: building, phone_num: phone_num, user_id: user_id, purchase_id: purchase.id)
   end
 end
