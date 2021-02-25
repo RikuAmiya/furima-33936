@@ -5,10 +5,11 @@ class PurchaseAddress
   with_options presence: true do
     validates :city
     validates :address
-    validates :phone_num, format: {with: /\A[0-9]+\z/, message: "半角数字を用いて入力してください。"}
+    validates :phone_num, format: {with: /\A[0-9]+\z/, message: "は半角数字を用いて入力してください。"}, length: { maximum: 11, message: 'の設定が範囲外です' }
     validates :user_id
     validates :item_id
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフン(-)を含んで入力してください。"}
+    validates :token
   end
   validates :area_id, numericality: { other_than: 1 }
   
