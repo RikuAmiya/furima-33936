@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path unless @item.purchase.nil?
   end
 
   def update
@@ -50,6 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless current_user == @item.user || !@item.purchase.nil?
+    redirect_to root_path unless current_user == @item.user
   end
 end
