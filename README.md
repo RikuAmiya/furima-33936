@@ -45,13 +45,13 @@
 
 | Column      | Type       | Options     |
 |-------------|------------|-------------|
-| postal_cade | string     | null: false |
+| postal_code | string     | null: false |
 | area_id     | integer    | null: false, foreign_key: true |
 | city        | string     | null: false |
 | address     | string     | null: false |
 | building    | string     |             |
 | phone_num   | string     | null: false |
-| user        | references | null: false, foreign_key: true |
+| purchase    | references | null: false, foreign_key: true |
 
 
 ### Association
