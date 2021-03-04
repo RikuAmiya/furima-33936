@@ -70,37 +70,3 @@
 ・has_one    :address
 ・belongs_to :user
 
-
-## CATEGORYテーブル
-・ActiveHash
-
-### Association
-・has_many :items
-
-
-## STATUSテーブル
-・ActiveHash
-
-### Association
-・has_many :items
-
-
-## SHOPPING_COSTテーブル
-・ActiveHash
-
-### Association
-・has_many :items
-
-
-## AREAテーブル
-・ActiveHash
-
-### Association
-・has_many :items
-
-
-## SHOPPING_DAYテーブル
-・ActiveHash
-
-### Association
-・has_many :items
